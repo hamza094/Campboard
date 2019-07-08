@@ -74,11 +74,9 @@
             </div>
         </nav>
 
-        <main class="py-4">
-           <div class="container mt-3">
+                   <div class="container-fluid main-panel">
             @yield('content')
             </div>
-        </main>
     </div>
 </body>
 </html>
