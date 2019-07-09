@@ -7,5 +7,8 @@
 
 <p>{{$project->description}}</p>
 
+@foreach($project->tasks as $task)
+<p>{{$task->body}}</p>
+@endforeach
 
 @endsection

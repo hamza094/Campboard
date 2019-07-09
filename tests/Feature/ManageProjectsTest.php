@@ -28,7 +28,7 @@ class ManageProjectsTest extends TestCase
     public function only_authenticated_user_can_create_a_project()
     {
         $this->withExceptionHandling();
-        $this->actingAs(create('App\User'));
+        $this->signIn();
         $this->get('/projects/create')->assertStatus(200);
         $attributes=[
             'title'=>$this->faker->sentence,
@@ -42,7 +42,7 @@ class ManageProjectsTest extends TestCase
     
   /** @test */
     public function project_requires_a_title(){
-    $this->actingAs(create('App\User'));
+    $this->signIn();
     $project=make('App\Project',[
             'title'=>null
         ]);
@@ -52,7 +52,7 @@ class ManageProjectsTest extends TestCase
     
     /** @test */
     public function project_requires_a_description(){
-    $this->actingAs(create('App\User'));
+    $this->signIn();
     $project=make('App\Project',[
             'description'=>null
         ]);
@@ -63,7 +63,7 @@ class ManageProjectsTest extends TestCase
     /** @test */
     public function an_authorized_user_can_view_his_project(){
         $this->withExceptionHandling();
-        $this->be(create('App\User'));
+        $this->signIn();
         $project=create('App\Project',['user_id'=>auth()->id()]);
         $this->get($project->path())
             ->assertSee($project->title)
@@ -72,7 +72,7 @@ class ManageProjectsTest extends TestCase
     
     /** @test */
     public function an_authorized_user_view_all_his_projects(){
-        $this->be(create('App\User'));
+        $this->signIn();
         $project=create('App\Project',['user_id'=>auth()->id()]);
         $this->get('/projects')
            ->assertSee($project->title)
@@ -82,7 +82,7 @@ class ManageProjectsTest extends TestCase
        /** @test */
     public function an_unAuthorized_user_can_not_view_others_project(){
         $this->withExceptionHandling();
-        $this->be(create('App\User'));
+        $this->signIn();
         $project=create('App\Project');
         $this->get($project->path())
             ->assertStatus(403);

@@ -5,6 +5,7 @@ namespace Tests\Unit;
 use App\User;
 use Tests\TestCase;
 use Illuminate\Foundation\Testing\RefreshDatabase;
+use Illuminate\Database\Eloquent\Collection;
 
 class ProjectTest extends TestCase
 {
@@ -21,5 +22,20 @@ class ProjectTest extends TestCase
     {
         $project = create('App\Project');
         $this->assertInstanceOf('App\User', $project->owner);
+    }
+    
+    /** @test */
+    public function it_can_add_task(){
+          $project = create('App\Project');
+        $task = $project->addTask('Test task');
+        $this->assertCount(1, $project->tasks);
+        $this->assertTrue($project->tasks->contains($task));
+    }
+    
+    /** @test */
+     public function a_project_has_tasks()
+    {
+        $project = create('App\Project');
+        $this->assertInstanceOf(Collection::class, $project->tasks);
     }
 }
