@@ -1,9 +1,8 @@
 @extends('layouts.app')
 
 @section('content')
-
-<div class="row ">
-    <div class="col-md-9 left-panel">
+<div class="row">
+    <div class="col-md-12 panel">
     <div class="user-project">
         <p class="user-project_content">My Projects <button class="float-right user-project_content_btn">Add Project</button></p>
     </div>
@@ -15,9 +14,6 @@
         </div>
         @endforeach
         </div>
-    </div>
-    <div class="col-md-3 right-panel">
-        This is a right side panel
     </div>
 </div>
 
