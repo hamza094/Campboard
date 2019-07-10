@@ -7,12 +7,20 @@ use Illuminate\Http\Request;
 use App\Task;
 
 use App\Project;
+use Auth;
 
 class ProjectTasksController extends Controller
 {
-    public function store(Project $project){
+    public function store(Project $project,Request $request){
         
-    $project->addTask(request('body'));
+          $this->validate($request, [
+            'body'=>'required',
+        ]);
+        
+      if(auth()->id() !== (int) $project->user_id){
+           abort(403);
+    }
+        $project->addTask(request('body'));
         return redirect($project->path());
     
     }
