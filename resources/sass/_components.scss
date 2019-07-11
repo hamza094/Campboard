@@ -73,12 +73,12 @@
     position: relative;
     &::before{
     content: '';
-    height: 10%; 
-    width: .4rem;
-    position: absolute;
-    left: 0;
-    top: 2.2rem; 
-    background-color: $color-primary;
+  height: 4.6rem; 
+  width: .4rem;
+  position: absolute;
+  left: 0;
+  top: 1.9rem; 
+   background-color: $color-primary; 
  }
     &_title{
     font-size: 2rem;    
@@ -89,5 +89,28 @@
     &_description{
          color: $text-muted-light-color;
         font-weight: 700;
+    }
+}
+
+//tasks
+
+.task{
+    margin-bottom: 7rem;
+    margin-top: 3rem;
+    &-card{
+        background-color: $background;
+        padding: 1rem 2rem;
+        border-radius: 1rem;
+        color:$text-muted-light-color;
+        font-weight: 700;
+        margin-bottom: 1.5rem;
+        text-transform: capitalize;
+        &_input{
+            width: 100%;
+            border:none;
+            color:$text-muted-light-color;
+            font-weight: 700;
+           outline: none;
+        }
     }
 }

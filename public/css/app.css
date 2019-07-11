@@ -115,11 +115,11 @@ body {
 
 .single-project::before {
   content: "";
-  height: 10%;
+  height: 4.6rem;
   width: 0.4rem;
   position: absolute;
   left: 0;
-  top: 2.2rem;
+  top: 1.9rem;
   background-color: #47cdff;
 }
 
@@ -133,6 +133,29 @@ body {
 .single-project_description {
   color: rgba(0, 0, 0, 0.3);
   font-weight: 700;
+}
+
+.task {
+  margin-bottom: 7rem;
+  margin-top: 3rem;
+}
+
+.task-card {
+  background-color: #ffffff;
+  padding: 1rem 2rem;
+  border-radius: 1rem;
+  color: rgba(0, 0, 0, 0.3);
+  font-weight: 700;
+  margin-bottom: 1.5rem;
+  text-transform: capitalize;
+}
+
+.task-card_input {
+  width: 100%;
+  border: none;
+  color: rgba(0, 0, 0, 0.3);
+  font-weight: 700;
+  outline: none;
 }
 
 /*!
