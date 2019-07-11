@@ -1,14 +1,21 @@
 @extends('layouts.app')
 
 @section('content')
-
-@foreach($projects as $project)
-<div>
-<h3><a href="/projects/{{$project->slug}}">{{$project->title}}</a></h3>
-    <span class="btn btn-link float-right"><a href="/projects/create">Create new project</a></span>
+<div class="row">
+    <div class="col-md-12 panel">
+    <div class="user-project">
+        <p class="user-project_content">My Projects <button class="float-right user-project_content_btn">Add Project</button></p>
+    </div>
+    <div class="row">
+    @foreach($projects as $project)
+<div class="col-md-3 project">
+  <h3 class="project-heading"><a href="/projects/{{$project->slug}}">{{$project->title}}</a></h3>
+   <p class="project-content">{{str_limit($project->description,70)}}</p>
+        </div>
+        @endforeach
+        </div>
+    </div>
 </div>
-<p>{{$project->description}}</p>
-@endforeach
 
 
 @endsection

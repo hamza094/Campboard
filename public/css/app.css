@@ -1,5 +1,163 @@
 @import url(https://fonts.googleapis.com/css?family=Nunito);@charset "UTF-8";
 
+*,
+*::after,
+*::before {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  box-sizing: border-box !important;
+  font-size: 62.5% !important;
+}
+
+@media only screen and (max-width: 62.5em) {
+  html {
+    font-size: 50% !important;
+  }
+}
+
+body {
+  font-family: "Nunito", sans-serif !important;
+  font-weight: 400 !important;
+  font-size: 1.7rem !important;
+  line-height: 1.7 !important;
+  box-sizing: border-box !important;
+  background-color: #f5f8fa !important;
+  margin: 0 !important;
+}
+
+.main-panel {
+  margin-top: 0.1rem;
+}
+
+.user-project {
+  margin: 0 0 2.3rem 0;
+}
+
+.user-project_content {
+  color: rgba(0, 0, 0, 0.3);
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.3rem;
+}
+
+.user-project_content_btn {
+  border: none;
+  color: #ffffff;
+  background-color: #47cdff;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+  font-size: 1.5rem;
+  padding: 0.5rem 1.5rem;
+  border-radius: 8%;
+}
+
+.panel {
+  margin-top: 5.5rem;
+  margin-bottom: 2rem;
+}
+
+.project {
+  background-color: #ffffff;
+  padding: 2.5rem;
+  position: relative;
+  margin-bottom: 2rem;
+  -webkit-box-flex: 0 !important;
+          flex: 0 0 30% !important;
+  max-width: 30% !important;
+}
+
+.project::before {
+  content: "";
+  height: 27%;
+  width: 0.4rem;
+  position: absolute;
+  left: 0;
+  top: 1.9rem;
+  background-color: #47cdff;
+}
+
+.project:not(:last-child) {
+  margin-right: 2rem;
+}
+
+.project-heading {
+  font-size: 2.2rem;
+  padding: 0.4rem 1rem 1rem 1rem;
+  text-transform: capitalize;
+}
+
+.project-heading a {
+  text-decoration: none;
+  color: #526369;
+  font-weight: 700;
+}
+
+.project-heading a:hover {
+  text-decoration: none;
+  color: #526369;
+}
+
+.project-content {
+  padding: 0rem 1rem 0rem 1rem;
+  color: rgba(0, 0, 0, 0.3);
+  font-weight: 700;
+}
+
+.single-project {
+  background-color: #ffffff;
+  padding: 2.5rem 2.5rem 2rem 2.5rem;
+  margin-bottom: 2rem;
+  position: relative;
+}
+
+.single-project::before {
+  content: "";
+  height: 4.6rem;
+  width: 0.4rem;
+  position: absolute;
+  left: 0;
+  top: 1.9rem;
+  background-color: #47cdff;
+}
+
+.single-project_title {
+  font-size: 2rem;
+  color: gray;
+  font-weight: 700;
+  padding: 0.3rem 0 1rem 0rem;
+}
+
+.single-project_description {
+  color: rgba(0, 0, 0, 0.3);
+  font-weight: 700;
+}
+
+.task {
+  margin-bottom: 7rem;
+  margin-top: 3rem;
+}
+
+.task-card {
+  background-color: #ffffff;
+  padding: 1rem 2rem;
+  border-radius: 1rem;
+  color: rgba(0, 0, 0, 0.3);
+  font-weight: 700;
+  margin-bottom: 1.5rem;
+  text-transform: capitalize;
+}
+
+.task-card_input {
+  width: 100%;
+  border: none;
+  color: rgba(0, 0, 0, 0.3);
+  font-weight: 700;
+  outline: none;
+}
+
 /*!
  * Bootstrap v4.3.1 (https://getbootstrap.com/)
  * Copyright 2011-2019 The Bootstrap Authors
@@ -72,7 +230,7 @@ body {
   line-height: 1.6;
   color: #212529;
   text-align: left;
-  background-color: #f8fafc;
+  background-color: #f5f6f9;
 }
 
 [tabindex="-1"]:focus {
@@ -517,7 +675,7 @@ mark,
 
 .img-thumbnail {
   padding: 0.25rem;
-  background-color: #f8fafc;
+  background-color: #f5f6f9;
   border: 1px solid #dee2e6;
   border-radius: 0.25rem;
   max-width: 100%;
@@ -4293,15 +4451,15 @@ input[type=button].btn-block {
 }
 
 .custom-range:focus::-webkit-slider-thumb {
-  box-shadow: 0 0 0 1px #f8fafc, 0 0 0 0.2rem rgba(52, 144, 220, 0.25);
+  box-shadow: 0 0 0 1px #f5f6f9, 0 0 0 0.2rem rgba(52, 144, 220, 0.25);
 }
 
 .custom-range:focus::-moz-range-thumb {
-  box-shadow: 0 0 0 1px #f8fafc, 0 0 0 0.2rem rgba(52, 144, 220, 0.25);
+  box-shadow: 0 0 0 1px #f5f6f9, 0 0 0 0.2rem rgba(52, 144, 220, 0.25);
 }
 
 .custom-range:focus::-ms-thumb {
-  box-shadow: 0 0 0 1px #f8fafc, 0 0 0 0.2rem rgba(52, 144, 220, 0.25);
+  box-shadow: 0 0 0 1px #f5f6f9, 0 0 0 0.2rem rgba(52, 144, 220, 0.25);
 }
 
 .custom-range::-moz-focus-outer {
@@ -4510,8 +4668,8 @@ input[type=button].btn-block {
 .nav-tabs .nav-link.active,
 .nav-tabs .nav-item.show .nav-link {
   color: #495057;
-  background-color: #f8fafc;
-  border-color: #dee2e6 #dee2e6 #f8fafc;
+  background-color: #f5f6f9;
+  border-color: #dee2e6 #dee2e6 #f5f6f9;
 }
 
 .nav-tabs .dropdown-menu {
@@ -11103,5 +11261,9 @@ a.text-dark:focus {
 .navbar-laravel {
   background-color: #fff;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.04);
+}
+
+.navbar-brand {
+  font-size: 2rem;
 }
 

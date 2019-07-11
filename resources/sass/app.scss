@@ -5,10 +5,19 @@
 // Variables
 @import 'variables';
 
+//basic setting
+@import 'home';
+
+//components
+@import 'components';
+
 // Bootstrap
 @import '~bootstrap/scss/bootstrap';
 
 .navbar-laravel {
   background-color: #fff;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.04);
+}
+.navbar-brand{
+    font-size: 2rem;
 }
