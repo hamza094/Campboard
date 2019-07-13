@@ -30,7 +30,8 @@ Route::get('/projects/create','ProjectsController@create');
 Route::post('/projects','ProjectsController@store');
 Route::get('/projects/{project}','ProjectsController@show');
     
-Route::post('/projects/{project}/tasks', 'ProjectTasksController@store');    
+Route::post('/projects/{project}/tasks', 'ProjectTasksController@store')->name('task.create');  
+Route::patch('/projects/{project}/tasks/{task}', 'ProjectTasksController@update')->name('task.update');  
     
 });
 

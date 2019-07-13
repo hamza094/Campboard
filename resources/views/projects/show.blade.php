@@ -7,11 +7,24 @@
     <p class="user-project_content">My Projects / {{$project->title}}<button class="float-right user-project_content_btn">Add Task</button></p>
    <div class="task">
     <p class="user-project_content">Tasks</p>
+    @foreach($project->tasks as $task)
      <div class="task-card">
-        run berry run
+       <form action="{{$task->path()}}" method="POST" class="was-validated">
+        @method('PATCH')
+        @csrf
+       <div class="flex">
+        <input type="text" name="body" class="task-card_input" value="{{$task->body}}">
+        <input type="checkbox" name="completed" class="task-card_checkbox" onChange="this.form.submit()" {{ $task->completed ? 'checked' : '' }}>
+           </div>
+         </form>
     </div>
+@endforeach
+
     <div class="task-card">
-        <input type="text" name="task" placeholder="Add Task" class="task-card_input">
+       <form action="{{$project->path().'/tasks'}}" method="POST">
+          {{csrf_field()}}
+           <input type="text" name="body" placeholder="Add Task" class="task-card_input">
+       </form>
     </div>
    </div>
    <div class="notes">
@@ -29,8 +42,6 @@
 
 
 
-@foreach($project->tasks as $task)
-<p>{{$task->body}}</p>
-@endforeach
+
 
 @endsection

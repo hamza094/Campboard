@@ -156,6 +156,17 @@ body {
   color: rgba(0, 0, 0, 0.3);
   font-weight: 700;
   outline: none;
+  text-transform: capitalize;
+}
+
+.task-card_checkbox {
+  background-color: #ffffff;
+  border: none;
+}
+
+.flex {
+  display: -webkit-box;
+  display: flex;
 }
 
 /*!

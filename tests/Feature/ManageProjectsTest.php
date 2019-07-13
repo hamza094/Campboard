@@ -15,6 +15,7 @@ class ManageProjectsTest extends TestCase
      * @return void
      */
     
+    
     /** @test */
     public function guests_cannot_manage_projects(){
         $project=create('App\Project');
@@ -70,15 +71,7 @@ class ManageProjectsTest extends TestCase
             ->assertSee($project->description);
     }
     
-    /** @test */
-    public function an_authorized_user_view_all_his_projects(){
-        $this->signIn();
-        $project=create('App\Project',['user_id'=>auth()->id()]);
-        $this->get('/projects')
-           ->assertSee($project->title)
-           ->assertSee($project->description);
-    }
-      
+  
        /** @test */
     public function an_unAuthorized_user_can_not_view_others_project(){
         $this->withExceptionHandling();

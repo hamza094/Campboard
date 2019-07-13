@@ -111,6 +111,17 @@
             color:$text-muted-light-color;
             font-weight: 700;
            outline: none;
+            text-transform: capitalize;
+        }
+        &_checkbox{
+            background-color: $background;
+            border:none;
         }
     }
 }
+.flex{
+    display: flex;
+}
+
+
+
