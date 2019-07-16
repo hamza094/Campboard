@@ -17,15 +17,14 @@ class ProjectTasksController extends Controller
             'body'=>'required',
         ]);
         
-      if(auth()->id() !== (int) $project->user_id){
-           abort(403);
-    }
+      $this->authorize('update',$project);
         $project->addTask(request('body'));
         return redirect($project->path());
     
     }
     
     public function update(Project $project,Task $task){
+        $this->authorize('update',$task->project);
         $task->update([
             'body'=>request('body'),
             'completed'=>request()->has('completed')

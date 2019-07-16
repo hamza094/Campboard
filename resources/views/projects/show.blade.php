@@ -29,9 +29,16 @@
    </div>
    <div class="notes">
        <p class="user-project_content">General Notes</p>
+       <form action="{{$project->path()}}" method="POST">
+       @method('PATCH')
+        @csrf
        <div class="form-group">
-           <textarea name="notes" id="" cols="30" rows="10" class="form-control"></textarea>
+           <textarea name="notes" id="" cols="30" rows="10" class="notes-form" placeholder="Anything special you want to make note of?">  {{$project->notes}}
+           </textarea>
        </div>
+       <button class="user-project_content_btn float-right" type="submit">Add Note</button>  
+       </form>
+       
    </div>  
     </div>
     <div class="col-md-3 single-project">

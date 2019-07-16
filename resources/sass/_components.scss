@@ -95,7 +95,7 @@
 //tasks
 
 .task{
-    margin-bottom: 7rem;
+    margin-bottom: 5rem;
     margin-top: 3rem;
     &-card{
         background-color: $background;
@@ -123,5 +123,17 @@
     display: flex;
 }
 
-
+.notes{
+    &-form{
+        font-size: 2rem;
+        width:100%;
+        height:15rem;
+        border:none;
+        text-transform: capitalize;
+        letter-spacing: .2rem;
+        padding-top: 2rem;
+        font-weight: 700;
+        color: gray;
+    }
+}
 

@@ -34,7 +34,8 @@ $factory->define(App\Project::class, function (Faker $faker) {
         },  
         'title' => $title,
         'slug'=>str_slug($title),    
-        'description' => $faker->paragraph,
+        'description' => $faker->sentence,
+        'notes'=> $faker->sentence,
     ];
 });
 
