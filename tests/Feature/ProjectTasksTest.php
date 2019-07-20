@@ -56,8 +56,8 @@ class ProjectTasksTest extends TestCase
         $this->signIn();
         $project=create('App\Project',['user_id'=>auth()->id()]);
         $task=$project->addTask('test task');
-        $this->patch($task->path(), ['body' => 'changed','completed'=>true]);
-        $this->assertDatabaseHas('tasks',['body'=>'changed','completed'=>true]);
+        $this->patch($task->path(), ['body' => 'changed']);
+        $this->assertDatabaseHas('tasks',['body'=>'changed']);
     }
     
       /** @test */    
@@ -70,5 +70,25 @@ class ProjectTasksTest extends TestCase
         $this->assertDatabaseMissing('tasks',['body'=>'changed','completed'=>true]);
         
     }
+    
+    /** @test */
+    public function task_marked_as_completed(){
+        $this->signIn();
+        $project=create('App\Project',['user_id'=>auth()->id()]);
+        $task=$project->addTask('test task');
+        $this->patch($task->path(), ['body' => 'changed','completed'=>true]);
+        $this->assertDatabaseHas('tasks',['body'=>'changed','completed'=>true]);
+    }
+    
+      /** @test */
+    public function task_marked_as_incomplete(){
+        $this->signIn();
+        $project=create('App\Project',['user_id'=>auth()->id()]);
+        $task=$project->addTask('test task');
+        $this->patch($task->path(), ['body' => 'changed','completed'=>true]);
+         $this->patch($task->path(), ['body' => 'changed','completed'=>false]);
+        $this->assertDatabaseHas('tasks',['body'=>'changed','completed'=>false]);
+    }
+    
     
 }

@@ -34,6 +34,7 @@ class ProjectsController extends Controller
         $project = Project::create([
                 'user_id'=>auth()->id(),
                 'title'=>request('title'),
+                'slug'=>str_slug($request->title), 
                 'description'=>request('description'),
                 'notes'=>request('notes')
                 ]);

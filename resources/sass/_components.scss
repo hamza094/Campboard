@@ -70,7 +70,9 @@
     background-color: $background;
     padding: 2.5rem 2.5rem 2rem 2.5rem;
     margin-bottom: 2rem;
+    margin-left: 1rem;
     position: relative;
+    width: 30rem;
     &::before{
     content: '';
   height: 4.6rem; 
@@ -134,6 +136,34 @@
         padding-top: 2rem;
         font-weight: 700;
         color: gray;
+        
     }
 }
 
+//activity
+
+.activity{
+     background-color: $background;
+    padding: 2.5rem 2.5rem 2rem 2.5rem;
+    margin-bottom: 2rem;
+    margin-left: 1rem;
+    width: 30rem;
+    &_title{
+    font-size: 2rem;    
+    color:gray;
+    font-weight: 700; 
+    padding:.3rem 0 1rem 0rem;        
+    }
+    ul{
+        li{
+            list-style: none;
+            font-size: 1.5rem;
+            color:gray;
+    font-weight: 700; 
+        }
+    }
+    &-time{
+        color: $text-muted-light-color;
+        font-weight: 700;
+    }
+}

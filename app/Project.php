@@ -6,21 +6,16 @@ use Illuminate\Database\Eloquent\Model;
 
 class Project extends Model
 {
+    use RecordActivity;
+    
     protected $guarded=[];
     
+        
      public function getRouteKeyName()
     {
         return 'slug';
     }
 
-  public static function boot()
-    {
-        parent::boot();
-        static::created(function ($project) {
-            $project->update(['slug'=>$project->title]);
-        });
-    }
-    
      public function owner()
     {
         return $this->belongsTo(User::class,'user_id');
@@ -40,5 +35,7 @@ class Project extends Model
         return $this->tasks()->create(compact('body'));
 
      }
+  
+    
 }
 

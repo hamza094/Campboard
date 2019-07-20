@@ -33,7 +33,7 @@
        @method('PATCH')
         @csrf
        <div class="form-group">
-           <textarea name="notes" id="" cols="30" rows="10" class="notes-form" placeholder="Anything special you want to make note of?">  {{$project->notes}}
+           <textarea name="notes" id="" cols="30" rows="10" class="notes-form" placeholder="  Anything special you want to make note of?">  {{$project->notes}}
            </textarea>
        </div>
        <button class="user-project_content_btn float-right" type="submit">Add Note</button>  
@@ -41,9 +41,14 @@
        
    </div>  
     </div>
-    <div class="col-md-3 single-project">
+    <div class="col-md-3">
+       <div class="single-project">
         <h3 class="single-project_title">{{$project->title}}</h3>
         <p class="single-project_description">{{$project->description}}</p>
+        </div>
+        <div class="activity">
+         @include('projects.activities.card')
+        </div>
     </div>
 </div>
 
