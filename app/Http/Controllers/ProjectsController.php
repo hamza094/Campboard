@@ -13,7 +13,7 @@ class ProjectsController extends Controller
     
     public function index(){
         
-        $projects=auth()->user()->projects;
+        $projects=auth()->user()->accesibleProjects();
         return view('projects.index',compact('projects'));
     }
     
@@ -60,6 +60,11 @@ class ProjectsController extends Controller
         return view('projects.edit',compact('project'));
     }
     
+    public function destroy(Project $project){
+        $this->authorize('manage',$project);
+        $project->delete();
+        return redirect('/projects');
+    }
     
     protected function validateRequest(){
         return request()->validate([

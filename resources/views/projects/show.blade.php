@@ -4,8 +4,16 @@
 
 <div class="row panel">
      <div class="col-md-9">
-    <p class="user-project_content">My Projects / {{$project->title}}<button class="float-right user-project_content_btn">Add Task</button></p>
-   <div class="task">
+    <p class="user-project_content">My Projects / {{$project->title}}
+    <span class="user-project_content-img">
+     @foreach($project->members as $member)
+    <img src="{{gravatar_url($member->email)}}" alt="{{$member->name}}'s avatar" class="rounded-circle img-responsive">
+    @endforeach
+    <img src="{{gravatar_url($project->owner->email)}}" alt="{{$project->owner->name}}'s avatar" class="rounded-circle img-responsive">
+    </span>
+    <button class="float-right user-project_content_btn">Add Task</button>
+    </p>
+    <div class="task">
     <p class="user-project_content">Tasks</p>
     @foreach($project->tasks as $task)
      <div class="task-card">
@@ -38,17 +46,37 @@
        </div>
        <button class="user-project_content_btn float-right" type="submit">Add Note</button>  
        </form>
-       
+           @include ('projects.errors')
+
    </div>  
     </div>
     <div class="col-md-3">
        <div class="single-project">
         <h3 class="single-project_title">{{$project->title}}</h3>
         <p class="single-project_description">{{$project->description}}</p>
+        @can ('manage', $project)
+        <form action="{{$project->path()}}" method="POST" class="float-right">
+           @method('DELETE')
+           @csrf
+            <button type="submit" class="btn btn-outline-danger">Delete</button>
+       </form>
+       @endcan
         </div>
         <div class="activity">
          @include('projects.activities.card')
         </div>
+        @if(auth()->user()->is($project->owner))
+        <div class="single-project">
+        <h3 class="single-project_title">Invite a User</h3>
+         <div class="email-card">
+       <form action="{{$project->path().'/invitations'}}" method="POST">
+          {{csrf_field()}}
+           <input type="email" name="email" placeholder="Add Email" class="email-card_input">
+       </form>
+    </div>
+        @include ('projects.errors', ['bag' => 'invitations']) 
+        </div>
+        @endif
     </div>
 </div>
 

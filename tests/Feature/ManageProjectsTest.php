@@ -6,6 +6,7 @@ use Tests\TestCase;
 use Illuminate\Foundation\Testing\WithFaker;
 use Illuminate\Foundation\Testing\RefreshDatabase;
 use App\Project;
+use App\User;
 
 class ManageProjectsTest extends TestCase
 {
@@ -21,6 +22,7 @@ class ManageProjectsTest extends TestCase
     public function guests_cannot_manage_projects(){
         $project=create('App\Project');
         $this->get('/projects')->assertRedirect('login');
+        $this->delete('/projects/{project}')->assertRedirect('login');
        $this->post('/projects', $project->toArray())->assertRedirect('login');
         $this->get($project->path())->assertRedirect('login');
     } 
@@ -31,17 +33,11 @@ class ManageProjectsTest extends TestCase
     {
         $this->signIn();
         $this->get('/projects/create')->assertStatus(200);
-        $attributes=[
-            'title'=>$this->faker->sentence,
-            'description'=>$this->faker->sentence,
-            'notes'=>'General Notes',
-        ];
-        $response=$this->post('/projects',$attributes);
-       
-        $this->assertDatabaseHas('projects',$attributes);
-        $this->get('/projects')
+        $attributes=factory(Project::class)->raw(['user_id'=>auth()->id()]);
+        $this->followingRedirects()->post('/projects',$attributes)
             ->assertSee($attributes['title'])
             ->assertSee($attributes['description']);
+        $this->assertDatabaseHas('projects',$attributes);
             
     }
     
@@ -103,4 +99,30 @@ class ManageProjectsTest extends TestCase
             ->assertStatus(403);
         $this->assertDatabaseMissing('projects',['notes'=>'changed']);
     }
+    
+    /** @test */
+    public function authorized_user_can_delete_his_projects(){
+         $this->signIn();
+        $project=create('App\Project',['user_id'=>auth()->id()]);
+        $this->delete($project->path());
+        $this->assertDatabaseMissing('projects',['id'=>$project->id]);
+    }
+    
+     /** @test */
+    public function Unathorized_user_can_not_delete_project(){
+        $this->signIn();
+        $project=create('App\Project');
+        $this->delete($project->path())->assertStatus(403);
+        $this->assertDatabaseHas('projects',['id'=>$project->id]);
+    }
+    
+    /** @test*/
+    public function a_user_can_see_all_projects_they_have_been_invited_to_on_their_desktop(){
+        $this->signIn();
+        $project=create('App\Project');
+        $project->invite(auth()->user());
+        $this->get('/projects')
+            ->assertSee($project->title);
+    }  
+    
 }

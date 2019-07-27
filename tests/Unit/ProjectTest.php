@@ -38,4 +38,11 @@ class ProjectTest extends TestCase
         $project = create('App\Project');
         $this->assertInstanceOf(Collection::class, $project->tasks);
     }
+    
+    /** @test */
+    public function it_can_invites_a_user(){
+        $project = create('App\Project');
+        $project->invite($user=create('App\User'));
+        $this->assertTrue($project->members->contains($user));
+    }
 }
