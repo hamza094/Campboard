@@ -26,6 +26,6 @@ body {
     font-size: 1.7rem !important;
     line-height: 1.7 !important;
     box-sizing: border-box !important;
-    background-color:  #f5f8fa !important;
+    background-color:  var(--body-background-color) !important;
    margin:0 !important;
 }
