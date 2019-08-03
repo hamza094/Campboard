@@ -1,10 +1,8 @@
 @extends('layouts.app')
 
 @section('content')
-
-<div class="row panel">
-     <div class="col-md-9">
-    <p class="user-project_content">My Projects / {{$project->title}}
+ 
+   <p class="user-project_content mt-5">My Projects / {{$project->title}}
     <span class="user-project_content-img">
      @foreach($project->members as $member)
     <img src="{{gravatar_url($member->email)}}" alt="{{$member->name}}'s avatar" class="rounded-circle img-responsive">
@@ -13,7 +11,10 @@
     </span>
     <button class="float-right user-project_content_btn">Add Task</button>
     </p>
-    <div class="task">
+<div class="row panel">
+    
+     <div class="col-md-9">
+     <div class="task">
     <p class="user-project_content">Tasks</p>
     @foreach($project->tasks as $task)
      <div class="task-card">
@@ -21,7 +22,7 @@
         @method('PATCH')
         @csrf
        <div class="flex">
-        <input type="text" name="body" class="task-card_input" value="{{$task->body}}">
+        <input type="text" name="body" class="task-card_input  {{ $task->completed ? 'strike' : '' }}" value="{{$task->body}}">
         <input type="checkbox" name="completed" class="task-card_checkbox" onChange="this.form.submit()" {{ $task->completed ? 'checked' : '' }}>
            </div>
          </form>

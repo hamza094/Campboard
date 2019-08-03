@@ -16,6 +16,7 @@
     <link rel="dns-prefetch" href="//fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css?family=Nunito" rel="stylesheet" type="text/css">
     <link rel="shortcut icon" type="image/png" href="https://pbs.twimg.com/profile_images/647506462579646464/6X2Iy2s8.png">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.2/css/all.css" integrity="sha384-oS3vJWv+0UjzBfQzYUhtDYW+Pj2yciDJxpsK1OYPAYjqT085Qq/1cq5FLXAZQ7Ay" crossorigin="anonymous">
 
 
     <!-- Styles -->
@@ -78,6 +79,9 @@
             <div class="container main-panel">
             @yield('content')
         </div>
+         
+              
+        
     </div>
 </body>
 </html>

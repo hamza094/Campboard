@@ -1,10 +1,12 @@
 @extends('layouts.app')
 
 @section('content')
-<div class="row">
+ <div class="row">
     <div class="col-md-12 panel">
     <div class="user-project">
-        <p class="user-project_content">My Projects <button class="float-right user-project_content_btn">Add Project</button></p>
+       <project-model></project-model>
+        <p class="user-project_content">My Projects <button class="float-right user-project_content_btn"
+         @click="$modal.show('project')" >Add Project</button></p>
     </div>
     <div class="row">
     @forelse($projects as $project)

@@ -11,7 +11,7 @@
 .theme-dark {
   --body-background-color: #17181e;
   --background-color: #1f2027;
-  --color-primary: #59b6f9;
+  --color-primary: #FF6600;
   --text-muted-light-color: gray;
   --accent-color: #ffffff;
 }
@@ -66,16 +66,20 @@ body {
 
 .user-project_content_btn {
   border: none;
-  color: var(--background-color);
+  color: white;
   background-color: var(--color-primary);
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
   font-size: 1.5rem;
   padding: 0.5rem 1.5rem;
-  border-radius: 8%;
+  border-radius: 5%;
+}
+
+.user-project_content_btn:focus {
+  outline: none;
 }
 
 .user-project_content-img {
-  margin-left: 7rem;
+  margin-left: 2rem;
 }
 
 .user-project_content-img img {
@@ -179,7 +183,7 @@ body {
 }
 
 .task-card {
-  background-color: var(--background-color);
+  background-color: white;
   padding: 1rem 2rem;
   border-radius: 1rem;
   color: var(--text-muted-light-color);
@@ -191,7 +195,7 @@ body {
 .task-card_input {
   width: 100%;
   border: none;
-  color: var(--text-muted-light-color);
+  color: gray;
   font-weight: 700;
   outline: none;
   text-transform: capitalize;
@@ -270,6 +274,58 @@ body {
 
 .border-accent {
   border: 1px solid var(--color-primary) !important;
+}
+
+.strike {
+  text-decoration: line-through;
+}
+
+.model-heading {
+  font-size: 2.3rem;
+  color: #526369;
+  font-weight: 700;
+  padding-bottom: 1.8rem;
+}
+
+.model-text {
+  color: gray;
+  font-weight: 700;
+}
+
+.model-input {
+  font-size: 1.6rem !important;
+}
+
+.model-task-btn {
+  border: none;
+  color: #526369;
+  background-color: transparent;
+  margin-top: 1rem;
+  outline: none;
+}
+
+.model-task-btn:focus {
+  outline: none;
+}
+
+.btn-close {
+  border: 1px solid var(--color-primary);
+  color: var(--color-primary);
+  background-color: #ffffff;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+  font-size: 1.5rem;
+  padding: 0.5rem 1.5rem;
+  border-radius: 5%;
+  margin-left: 1rem;
+}
+
+.btn-close:focus {
+  outline: none;
+}
+
+.model-btn {
+  margin-top: 13rem;
+  margin-bottom: 2rem;
 }
 
 /*!

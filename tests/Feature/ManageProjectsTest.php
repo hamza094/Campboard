@@ -38,6 +38,19 @@ class ManageProjectsTest extends TestCase
             ->assertSee($attributes['title'])
             ->assertSee($attributes['description']);
         $this->assertDatabaseHas('projects',$attributes);
+    }
+    
+    /** @test */
+    public function tasks_can_be_included_as_part_a_new_project_creation()
+    {
+        $this->signIn();
+        $attributes=factory(Project::class)->raw(['user_id'=>auth()->id()]);
+        $attributes['tasks']=[
+            ['body'=>'task 1'],
+            ['body'=>'task 2']
+        ];
+         $this->post('/projects',$attributes);
+        $this->assertCount(2,Project::first()->tasks);
             
     }
     

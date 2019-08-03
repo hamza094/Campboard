@@ -30,7 +30,7 @@ class ProjectsController extends Controller
            'notes'=>'max:255'
             
         ]);
-       
+              
         $project = Project::create([
                 'user_id'=>auth()->id(),
                 'title'=>request('title'),
@@ -38,6 +38,14 @@ class ProjectsController extends Controller
                 'description'=>request('description'),
                 'notes'=>request('notes')
                 ]);
+        
+        if ($tasks = request('tasks')) {
+            $project->addTasks($tasks);
+        }
+        
+        if(request()->wantsJson()){
+            return ['message'=>$project->path()];
+        }
         
         return redirect($project->path());
     }
