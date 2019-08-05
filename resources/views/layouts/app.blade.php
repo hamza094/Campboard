@@ -53,23 +53,25 @@
                             @endif
                         @else
                          <theme-switcher></theme-switcher>
-                          <li class="nav-item dropdown">
-                                <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
-                                    {{ Auth::user()->name }} <span class="caret"></span>
-                                </a>
-
-                                <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
-                                    <a class="dropdown-item" href="{{ route('logout') }}"
-                                       onclick="event.preventDefault();
+                          <dropdown>
+                               <template v-slot:trigger>
+                                <a id="" class="nav-link" href="#" role="button"  aria-haspopup="true" aria-expanded="false">
+                                    {{ Auth::user()->name }}
+                                
+                                 <img src="{{gravatar_url(Auth::user()->email)}}" alt="{{Auth::user()->name}}'s avatar" class="rounded-circle img-responsive" style="width:4rem">
+                              </a>
+                              </template>
+                              <a class="vue-dropdown_item_list" href="{{ route('logout') }}" onclick="event.preventDefault();
                                                      document.getElementById('logout-form').submit();">
                                         {{ __('Logout') }}
                                     </a>
-
-                                    <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
-                                        @csrf
-                                    </form>
-                                </div>
-                            </li>
+                              
+                              <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+                            @csrf
+                        </form>
+                              </dropdown>
+                              
+                                                        
                         @endguest
                     </ul>
                 </div>

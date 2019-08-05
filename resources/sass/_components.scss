@@ -22,6 +22,8 @@
             font-size:1.5rem; 
             padding: .5rem 1.5rem;
             border-radius:5%; 
+            z-index:1000 !important;
+            
             &:focus{
                 outline: none;
             }
@@ -262,4 +264,27 @@
        margin-top:13rem;
     margin-bottom: 2rem;
 }
+.vue-dropdown{
+    position: relative;
+ &_item{
+    position: absolute;
+    background-color:$background;
+    border-radius: 1rem;
+    margin-top: .2rem;
+    box-shadow: 0 0 10px rgba(0,0,0,.2);
+    z-index:2000 !important;
+    
+    width:100%;
+    &_list{
+         display: block;
+    color: black;
+            padding: .2rem 2rem .2rem 2rem;
+    &:hover{
+        text-decoration: none;
+        background: rgba(0,0,0,0.1);
+        color:black;
+    }
+    }
+}
 
+}
