@@ -1,7 +1,7 @@
 @extends('layouts.app')
 
 @section('content')
- 
+     <edit-model :project="{{$project}}"></edit-model>
    <p class="user-project_content mt-5">My Projects / {{$project->title}}
     <span class="user-project_content-img">
      @foreach($project->members as $member)
@@ -9,7 +9,8 @@
     @endforeach
     <img src="{{gravatar_url($project->owner->email)}}" alt="{{$project->owner->name}}'s avatar" class="rounded-circle img-responsive">
     </span>
-    <button class="float-right user-project_content_btn">Add Task</button>
+   
+    <button class="float-right user-project_content_btn" @click="$modal.show('EditProject')">Add Task</button>
     </p>
 <div class="row panel">
     

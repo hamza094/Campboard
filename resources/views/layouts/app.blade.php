@@ -77,8 +77,9 @@
                 </div>
             </div>
         </nav>
+         <div class="container main-panel">
+             
 
-            <div class="container main-panel">
             @yield('content')
         </div>
          

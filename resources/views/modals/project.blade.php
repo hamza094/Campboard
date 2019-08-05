@@ -1,3 +1,3 @@
-<modal name="project">
-      
+<modal name="EditProject">
+      edit Modal
   </modal>
