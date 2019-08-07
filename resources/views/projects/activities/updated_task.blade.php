@@ -1,1 +1,1 @@
-{{$activity->user->name}} completed a "{{$activity->subject->body}}"
+<i class="fas fa-leaf icon-color"></i> {{$activity->user->name}} completed a "{{$activity->subject->body}}"

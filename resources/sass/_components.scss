@@ -122,7 +122,6 @@
 
 .task{
     margin-bottom: 5rem;
-    margin-top: 3rem;
     &-card{
         background-color: white;
         padding: 1rem 2rem;
@@ -220,7 +219,18 @@
     border:1px solid var(--color-primary) !important;
 }
 .strike{
+    position: relative;
     text-decoration: line-through;
+   border-left: .3rem solid red;
+    left:-2rem;
+    padding-left: 2rem;
+    
+}
+.non-strike{
+    position: relative;
+   border-left: .3rem solid var(--color-primary);
+    left:-2rem;
+    padding-left: 2rem;
 }
 .model{
     &-heading{
@@ -287,4 +297,12 @@
     }
 }
 
+}
+
+//icon-color
+.icon-color{
+    color:var(--color-primary);
+}
+.icon-color-danger{
+    color:red;
 }

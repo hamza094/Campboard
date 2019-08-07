@@ -10,6 +10,8 @@ use Auth;
 
 use App\User;
 
+use Session;
+
 class ProjectInvitationsController extends Controller
 {
     public function store(Project $project,ProjectInvitationRequest $request){
@@ -18,6 +20,6 @@ class ProjectInvitationsController extends Controller
         
         $project->invite($user);
         
-        return redirect($project->path());
+        return redirect($project->path())->with('flash','User has been InvitedTo This Project');
     }
 }

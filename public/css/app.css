@@ -180,7 +180,6 @@ body {
 
 .task {
   margin-bottom: 5rem;
-  margin-top: 3rem;
 }
 
 .task-card {
@@ -278,7 +277,18 @@ body {
 }
 
 .strike {
+  position: relative;
   text-decoration: line-through;
+  border-left: 0.3rem solid red;
+  left: -2rem;
+  padding-left: 2rem;
+}
+
+.non-strike {
+  position: relative;
+  border-left: 0.3rem solid var(--color-primary);
+  left: -2rem;
+  padding-left: 2rem;
 }
 
 .model-heading {
@@ -353,6 +363,14 @@ body {
   text-decoration: none;
   background: rgba(0, 0, 0, 0.1);
   color: black;
+}
+
+.icon-color {
+  color: var(--color-primary);
+}
+
+.icon-color-danger {
+  color: red;
 }
 
 /*!

@@ -60,6 +60,12 @@ class ProjectsController extends Controller
       public function update(Project $project){
         $this->authorize('update',$project);
        $project->update($this->validateRequest());
+           if(request()->wantsJson()){
+            return ['message'=>$project->path()];
+        }
+        
+        return redirect($project->path())->with('flash','Updated Successfully');
+          
     }
     
     public function edit(Project $project){
@@ -69,7 +75,7 @@ class ProjectsController extends Controller
     public function destroy(Project $project){
         $this->authorize('manage',$project);
         $project->delete();
-        return redirect('/projects');
+        return redirect('/projects')->with('flash','Project Deleted Successfully');
     }
     
     protected function validateRequest(){

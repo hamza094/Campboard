@@ -1,5 +1,5 @@
 @if(count($activity->changes['after'])==1)
-{{$activity->user->name}} updated {{key($activity->changes['after'])}} of the project
+<i class="fas fa-seedling icon-color"></i> {{$activity->user->name}} updated {{key($activity->changes['after'])}} of the project
 @else
-{{$activity->user->name}} updated the project
+<i class="fas fa-seedling icon-color"></i> {{$activity->user->name}} updated the project
 @endif

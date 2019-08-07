@@ -60,6 +60,8 @@ class InvitationsTest extends TestCase
         $this->signIn($newUser);
         $this->post(action('ProjectTasksController@store',$project),$task=['body'=>'task added']);
         $this->assertDatabaseHas('tasks',$task);
+        $this->assertEquals($project->activity->last()->user_id, $newUser->id);
+
     }
     
     /** @test */

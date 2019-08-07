@@ -28,6 +28,7 @@ Vue.component('theme-switcher', require('./components/ThemeSwitcher.vue').defaul
 Vue.component('project-model', require('./components/ProjectModel.vue').default);
 Vue.component('edit-model', require('./components/EditModel.vue').default);
 Vue.component('dropdown', require('./components/Dropdown.vue').default);
+Vue.component('flash-message', require('./components/FlashMessage.vue').default);
 
 /**
  * Next, we will create a fresh Vue application instance and attach it to

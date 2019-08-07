@@ -45,15 +45,8 @@ export default{
                    description:this.form.description
                 })
             .then(response=>{
-                
-this.flash('Hello World', 'success', {
-  timeout: 1000,
-  beforeDestroy() {
-    location.reload();
-  }
-});
-                
-
+            location=response.data.message;
+            flash('Updating Project');    
             }).catch(error=>{
                this.errors=error.response.data.errors 
             });

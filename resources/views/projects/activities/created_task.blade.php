@@ -1,1 +1,1 @@
-{{$activity->user->name}} created  "{{$activity->subject->body}}"
+<i class="fas fa-leaf icon-color"></i> {{$activity->user->name}} created  "{{$activity->subject->body}}"

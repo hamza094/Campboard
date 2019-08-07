@@ -1,1 +1,1 @@
-{{$activity->user->name}} created the project
+<i class="fas fa-seedling icon-color"></i> {{$activity->user->name}} created the project

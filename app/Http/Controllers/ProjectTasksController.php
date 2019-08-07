@@ -9,6 +9,8 @@ use App\Task;
 use App\Project;
 use Auth;
 
+use Session;
+
 class ProjectTasksController extends Controller
 {
     public function store(Project $project,Request $request){
@@ -19,7 +21,7 @@ class ProjectTasksController extends Controller
         
       $this->authorize('update',$project);
         $project->addTask(request('body'));
-        return redirect($project->path());
+        return redirect($project->path())->with('flash','Task Added Successfully');
     
     }
     
@@ -34,6 +36,6 @@ class ProjectTasksController extends Controller
               $task->incomplete();
         }
         
-        return redirect($project->path());
+        return redirect($project->path())->with('flash','Task Updated Successfully');
     }
 }

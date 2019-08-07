@@ -65,6 +65,7 @@
             axios.post('/projects',this.form)
             .then(response=>{
                 location=response.data.message;
+                flash('Creating Project...');    
             }).catch(error=>{
                 this.errors=error.response.data.errors;
             });

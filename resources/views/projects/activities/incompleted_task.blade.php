@@ -1,1 +1,1 @@
-You have an incomplete "{{$activity->subject->body}}"
+<i class="fas fa-leaf icon-color-danger"></i> You have an incomplete "{{$activity->subject->body}}"

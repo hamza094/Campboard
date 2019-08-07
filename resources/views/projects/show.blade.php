@@ -9,9 +9,15 @@
     @endforeach
     <img src="{{gravatar_url($project->owner->email)}}" alt="{{$project->owner->name}}'s avatar" class="rounded-circle img-responsive">
     </span>
-   
-    <button class="float-right user-project_content_btn" @click="$modal.show('EditProject')">Add Task</button>
+     @if(auth()->user()->is($project->owner))
+   <button class="float-right user-project_content_btn" @click="$modal.show('EditProject')">Edit Project</button>
+   @endif
     </p>
+    @if(auth()->user()->is($project->owner))
+    <p class="user-project_content">Role:Admin</p>
+    @else
+    <p class="user-project_content">Role:Invited User</p>
+    @endif
 <div class="row panel">
     
      <div class="col-md-9">
@@ -23,7 +29,7 @@
         @method('PATCH')
         @csrf
        <div class="flex">
-        <input type="text" name="body" class="task-card_input  {{ $task->completed ? 'strike' : '' }}" value="{{$task->body}}">
+        <input type="text" name="body" class="task-card_input  {{ $task->completed ? 'strike' : 'non-strike' }}" value="{{$task->body}}">
         <input type="checkbox" name="completed" class="task-card_checkbox" onChange="this.form.submit()" {{ $task->completed ? 'checked' : '' }}>
            </div>
          </form>
