@@ -12,6 +12,8 @@ use App\User;
 
 use Session;
 
+
+
 class ProjectInvitationsController extends Controller
 {
     public function store(Project $project,ProjectInvitationRequest $request){

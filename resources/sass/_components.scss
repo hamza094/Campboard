@@ -296,13 +296,19 @@
     }
     }
 }
-
 }
-
 //icon-color
 .icon-color{
     color:var(--color-primary);
 }
 .icon-color-danger{
     color:red;
+}
+
+//notifications
+.notifications{
+    li{
+        font-size:1.5rem;
+        padding: .3rem;
+    }
 }

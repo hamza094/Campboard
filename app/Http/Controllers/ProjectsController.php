@@ -8,6 +8,9 @@ use App\Project;
 
 use Auth;
 
+use App\Notifications\ProjectUpdate;
+
+
 class ProjectsController extends Controller
 {
     
@@ -63,7 +66,10 @@ class ProjectsController extends Controller
            if(request()->wantsJson()){
             return ['message'=>$project->path()];
         }
-        
+        foreach($project->members as $member){
+            $member->notify(new ProjectUpdate($project));
+        }
+        $project->owner->notify(new ProjectUpdate($project));  
         return redirect($project->path())->with('flash','Updated Successfully');
           
     }

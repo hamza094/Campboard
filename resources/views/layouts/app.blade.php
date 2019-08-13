@@ -12,8 +12,14 @@
     <!-- Scripts -->
     <script src="{{ asset('js/app.js') }}" defer></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/vue/1.0.18/vue.min.js"></script>
-
-
+    <script>
+    window.App={!! json_encode([
+                'csrfToken'=>csrf_token(),
+                'user'=>Auth::user(),
+                'signedIn'=>Auth::check()
+                ]) !!};
+    </script>
+     
     <!-- Fonts -->
     <link rel="dns-prefetch" href="//fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css?family=Nunito" rel="stylesheet" type="text/css">
@@ -54,6 +60,7 @@
                                 </li>
                             @endif
                         @else
+                        <user-notifications></user-notifications>
                          <theme-switcher></theme-switcher>
                           <dropdown>
                                <template v-slot:trigger>

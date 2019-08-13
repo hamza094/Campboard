@@ -11,7 +11,14 @@
     <div class="row">
     @forelse($projects as $project)
 <div class="col-md-3 project">
-  <h3 class="project-heading"><a href="/projects/{{$project->slug}}">{{$project->title}}</a></h3>
+  <h3 class="project-heading">
+  <a href="/projects/{{$project->slug}}">
+  {{$project->title}}
+  </a>
+  @if(auth()->user()->is($project->owner))
+ <i class="fas fa-check-double icon-color float-right"></i>
+ @endif
+  </h3>
    <p class="project-content">{{str_limit($project->description,70)}}</p>
        <form action="{{$project->path()}}" method="POST" class="float-right">
            @method('DELETE')
