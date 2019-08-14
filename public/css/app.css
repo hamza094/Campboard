@@ -378,6 +378,41 @@ body {
   padding: 0.3rem;
 }
 
+.form-card {
+  background-color: #ffffff;
+  padding: 2.5rem;
+  width: 90%;
+}
+
+.form-card_heading {
+  margin-bottom: 2rem;
+  text-align: center;
+  font-weight: 700;
+  font-size: 2.2rem;
+  letter-spacing: 0.3rem;
+}
+
+.form-card_label {
+  font-weight: 700;
+}
+
+.form-card_group {
+  width: 90%;
+  padding: 0 2rem 0rem 2em;
+}
+
+.form-card_group input {
+  font-size: 1.6rem !important;
+}
+
+.form-card_group-forget {
+  font-size: 1.5rem !important;
+}
+
+.form-card_group-content {
+  margin-bottom: 2rem !important;
+}
+
 /*!
  * Bootstrap v4.3.1 (https://getbootstrap.com/)
  * Copyright 2011-2019 The Bootstrap Authors

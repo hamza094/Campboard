@@ -312,3 +312,33 @@
         padding: .3rem;
     }
 }
+
+.form-card{
+    background-color:$background;
+    padding: 2.5rem;
+    width:90%;
+    &_heading{
+        margin-bottom: 2rem;
+        text-align: center;
+        font-weight: 700;
+        font-size: 2.2rem;
+        letter-spacing: .3rem;
+    }
+        &_label{
+            font-weight: 700;
+        }
+}
+.form-card_group{
+    width:90%;
+    padding:0 2rem 0rem 2em;
+    
+    input{
+        font-size: 1.6rem !important;
+    }
+    &-forget{
+        font-size: 1.5rem !important;
+    }
+    &-content{
+        margin-bottom: 2rem !important;
+    }
+}
