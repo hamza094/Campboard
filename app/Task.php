@@ -37,10 +37,12 @@ class Task extends Model
     public function complete(){
         $this->update(['completed'=>true]);
         $this->recordActivity('updated_task');
+        $this->project->increment('tasks_count');
      }
     
      public function incomplete(){
         $this->update(['completed'=>false]);
         $this->recordActivity('incompleted_task');
+         $this->project->decrement('tasks_count'); 
     }
 }

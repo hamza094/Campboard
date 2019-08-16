@@ -35,6 +35,6 @@ class ProjectInvitationRequest extends FormRequest
     {
         return [
             'email.exists' => 'The user you are inviting must have a Campboard account.'
-        ];
+            ];
     }
 }

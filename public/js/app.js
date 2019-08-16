@@ -50715,6 +50715,7 @@ Vue.component('edit-model', __webpack_require__(/*! ./components/EditModel.vue *
 Vue.component('dropdown', __webpack_require__(/*! ./components/Dropdown.vue */ "./resources/js/components/Dropdown.vue")["default"]);
 Vue.component('flash-message', __webpack_require__(/*! ./components/FlashMessage.vue */ "./resources/js/components/FlashMessage.vue")["default"]);
 Vue.component('user-notifications', __webpack_require__(/*! ./components/UserNotifications.vue */ "./resources/js/components/UserNotifications.vue")["default"]);
+Vue.component('user-search', __webpack_require__(/*! ./components/UserSearch.vue */ "./resources/js/components/UserSearch.vue")["default"]);
 /**
  * Next, we will create a fresh Vue application instance and attach it to
  * the page. Then, you may begin adding components to this application
@@ -51220,6 +51221,38 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_UserNotifications_vue_vue_type_template_id_23249cfc___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"]; });
 
 
+
+/***/ }),
+
+/***/ "./resources/js/components/UserSearch.vue":
+/*!************************************************!*\
+  !*** ./resources/js/components/UserSearch.vue ***!
+  \************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../../node_modules/vue-loader/lib/runtime/componentNormalizer.js */ "./node_modules/vue-loader/lib/runtime/componentNormalizer.js");
+var render, staticRenderFns
+var script = {}
+
+
+/* normalize component */
+
+var component = Object(_node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_0__["default"])(
+  script,
+  render,
+  staticRenderFns,
+  false,
+  null,
+  null,
+  null
+  
+)
+
+component.options.__file = "resources/js/components/UserSearch.vue"
+/* harmony default export */ __webpack_exports__["default"] = (component.exports);
 
 /***/ }),
 

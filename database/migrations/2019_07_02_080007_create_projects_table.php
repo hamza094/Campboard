@@ -20,6 +20,7 @@ class CreateProjectsTable extends Migration
             $table->string('title');
             $table->text('description');
             $table->text('notes')->nullable();
+            $table->unsignedInteger('tasks_count')->default(0);
             $table->timestamps();
             
             $table->foreign('user_id')

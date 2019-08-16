@@ -28,13 +28,19 @@ class TaskTest extends TestCase
         $this->assertFalse($task->completed);
         $task->complete();
         $this->assertTrue($task->fresh()->completed);
+        $this->assertEquals(1,$task->project->tasks_count);
     }
     
      /** @test*/
     public function it_can_be_incompleted(){
-        $task = create('App\Task',['completed'=>true]);
+        $task = create('App\Task');
+        $task->complete();
+        $this->assertEquals(1,$task->project->tasks_count);
         $this->assertTrue($task->completed);
         $task->incomplete();
         $this->assertFalse($task->fresh()->completed);
+        $this->assertEquals(0,$task->project->tasks_count);
     }
+    
+    
 }

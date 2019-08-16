@@ -35,7 +35,7 @@
          </form>
     </div>
 @endforeach
-
+    
     <div class="task-card">
        <form action="{{$project->path().'/tasks'}}" method="POST">
           {{csrf_field()}}

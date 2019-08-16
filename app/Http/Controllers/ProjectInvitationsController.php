@@ -22,6 +22,6 @@ class ProjectInvitationsController extends Controller
         
         $project->invite($user);
         
-        return redirect($project->path())->with('flash','User has been InvitedTo This Project');
+        return redirect($project->path())->with('flash','User Invited Successfully');    
     }
 }

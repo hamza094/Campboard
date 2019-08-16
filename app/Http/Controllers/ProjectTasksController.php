@@ -32,9 +32,9 @@ class ProjectTasksController extends Controller
         
          if(request('completed')){
             $task->complete();
-        }else{
+            }else{
               $task->incomplete();
-        }
+            }
         
         return redirect($project->path())->with('flash','Task Updated Successfully');
     }

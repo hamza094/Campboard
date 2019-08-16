@@ -34,7 +34,5 @@ Route::post('/projects/{project}/invitations','ProjectInvitationsController@stor
 Route::get('{user}/notifications', 'UserNotificationsController@index');    
 Route::delete('{user}/notifications/{notification}', 'UserNotificationsController@destroy');
     
-
-    
 });
 
