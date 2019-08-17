@@ -284,7 +284,7 @@
     box-shadow: 0 0 10px rgba(0,0,0,.2);
     z-index:2000 !important;
     
-    width:100%;
+    width:80%;
     &_list{
          display: block;
     color: black;
@@ -292,6 +292,7 @@
     &:hover{
         text-decoration: none;
         background: rgba(0,0,0,0.1);
+         box-shadow: 0 0 10px rgba(0,0,0,.2);
         color:black;
     }
     }
@@ -310,6 +311,9 @@
     li{
         font-size:1.5rem;
         padding: .3rem;
+        a{
+            
+        }
     }
 }
 

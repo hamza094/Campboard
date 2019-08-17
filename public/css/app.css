@@ -350,7 +350,7 @@ body {
   margin-top: 0.2rem;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
   z-index: 2000 !important;
-  width: 100%;
+  width: 80%;
 }
 
 .vue-dropdown_item_list {
@@ -362,6 +362,7 @@ body {
 .vue-dropdown_item_list:hover {
   text-decoration: none;
   background: rgba(0, 0, 0, 0.1);
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
   color: black;
 }
 

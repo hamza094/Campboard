@@ -61,7 +61,8 @@
                             @endif
                         @else
                         <user-notifications></user-notifications>
-                         <theme-switcher></theme-switcher>
+                        <div class="mt-2">
+                            <theme-switcher></theme-switcher></div>
                           <dropdown>
                                <template v-slot:trigger>
                                 <a id="" class="nav-link" href="#" role="button"  aria-haspopup="true" aria-expanded="false">

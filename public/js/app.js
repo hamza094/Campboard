@@ -1923,7 +1923,7 @@ __webpack_require__.r(__webpack_exports__);
   methods: {
     addTask: function addTask() {
       this.form.tasks.push({
-        value: ''
+        body: ''
       });
     },
     submit: function submit() {
@@ -2010,6 +2010,8 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
   data: function data() {
     return {
@@ -2028,7 +2030,21 @@ __webpack_require__.r(__webpack_exports__);
       });
     },
     markAsRead: function markAsRead(notification) {
-      axios["delete"](window.App.user.id + "/notifications/" + notification.id);
+      var _this2 = this;
+
+      axios["delete"]('/' + window.App.user.id + "/notifications/" + notification.id).then(function (response) {
+        _this2.fetchNotifications();
+
+        document.location.replace(response.data.link);
+        console.log(response.data.link);
+      });
+    },
+    getPostBody: function getPostBody(notification) {
+      var body = this.stripTags(notification.data.message);
+      return body.length > 35 ? body.substring(0, 35) + '...' : body;
+    },
+    stripTags: function stripTags(text) {
+      return text.replace(/(<([^>]+)>)/ig, '');
     }
   }
 });
@@ -38500,25 +38516,33 @@ var render = function() {
         [
           _vm._l(_vm.notifications, function(notification) {
             return _vm.notifications.length
-              ? _c("li", [
-                  _c("a", {
-                    staticClass: "dropdown-item",
-                    attrs: { href: notification.data.link },
-                    domProps: {
-                      textContent: _vm._s(notification.data.message)
-                    },
-                    on: {
-                      click: function($event) {
-                        return _vm.markAsRead(notification)
+              ? _c("li", { key: notification.id }, [
+                  _c(
+                    "a",
+                    {
+                      staticClass: "dropdown-item",
+                      attrs: { href: notification.data.link },
+                      on: {
+                        click: function($event) {
+                          $event.preventDefault()
+                          return _vm.markAsRead(notification)
+                        }
                       }
-                    }
-                  })
+                    },
+                    [
+                      _c("span", [
+                        _vm._v(_vm._s(_vm.getPostBody(notification)))
+                      ])
+                    ]
+                  )
                 ])
               : _vm._e()
           }),
           _vm._v(" "),
           !_vm.notifications.length
-            ? _c("li", [_vm._v("You have no new notification")])
+            ? _c("li", { staticClass: "mt-2 mr-4 ml-4" }, [
+                _vm._v("No new notifications")
+              ])
             : _vm._e()
         ],
         2

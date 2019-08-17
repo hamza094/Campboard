@@ -25,7 +25,7 @@ class InvitationsTest extends TestCase
             'email'=>$InvitedUser->email
         ])->assertRedirect($project->path());
        $this->assertTrue($project->members->contains($InvitedUser));
-    }
+     }
     
     /** @test */
     public function a_non_owner_can_not_invite_user(){
@@ -73,6 +73,34 @@ class InvitationsTest extends TestCase
         $this->delete($project->path())
         ->assertStatus(403);
         $this->assertDatabaseHas('projects',['id'=>$project->id]);
+    }
+    
+    /** @test */
+    public function project_owner_cannot_invite_himself(){
+        $owner=create('App\User');
+        $this->signIn($owner);
+        $project=create('App\Project',['user_id'=>$owner->id]);
+        $this->post($project->path().'/invitations',[
+            'email'=>$owner->email
+        ]);
+       $this->assertFalse($project->members->contains($owner));
+        $this->assertCount(0,$project->members);
+    }
+    
+    /** @test */
+    public function a_project_owner_can_not_reinvite_user(){
+        $owner=$user=create('App\User');
+        $this->signIn($owner);
+        $project=create('App\Project',['user_id'=>$owner->id]);
+        $InvitedUser=create('App\User');
+        $this->post($project->path().'/invitations',[
+            'email'=>$InvitedUser->email]);
+       $this->assertTrue($project->members->contains($InvitedUser));
+         $this->assertCount(1,$project->members);
+         $this->post($project->path().'/invitations',[
+            'email'=>$InvitedUser->email]);
+        $this->assertCount(1,$project->members);
+
     }
     
 }

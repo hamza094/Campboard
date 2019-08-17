@@ -42,7 +42,7 @@ class ProjectUpdate extends Notification
     public function toArray($notifiable)
     {
         return [
-            'message'=>$this->project->title.' updated',
+            'message'=>'Updated Project '.$this->project->title,
             'notifier' => auth()->user(),
             'link'=>$this->project->path()
         ];
