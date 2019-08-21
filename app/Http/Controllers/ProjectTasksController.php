@@ -38,4 +38,10 @@ class ProjectTasksController extends Controller
         
         return redirect($project->path())->with('flash','Task Updated Successfully');
     }
+    
+    public function delete(Project $project,Task $task)
+    {
+        $task->delete();
+    }
+    
 }

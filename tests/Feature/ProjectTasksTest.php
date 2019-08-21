@@ -72,6 +72,16 @@ class ProjectTasksTest extends TestCase
     }
     
     /** @test */
+    public function only_project_owner_can_delete_task(){
+        $this->WithOutExceptionHandling();
+        $this->signIn();
+        $project=create('App\Project',['user_id'=>auth()->id()]);
+        $task=$project->addTask('test task');
+        $this->delete($task->path());
+        $this->assertDatabaseMissing('tasks',['id'=>$task->id]);
+    }
+    
+    /** @test */
     public function task_marked_as_completed(){
         $this->signIn();
         $project=create('App\Project',['user_id'=>auth()->id()]);

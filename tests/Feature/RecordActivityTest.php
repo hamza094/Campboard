@@ -94,7 +94,21 @@ class RecordActivityTest extends TestCase
         $task->delete();
         $this->assertCount(3,$project->activity);
         $this->assertEquals('deleted_task',$project->activity->last()->description);
-    }  
+    }
+    
+    /** @test */
+    public function inviting_user(){
+        $owner=$user=create('App\User');
+        $this->signIn($owner);
+        $project=create('App\Project',['user_id'=>$owner->id]);
+        $InvitedUser=create('App\User');
+        $this->post($project->path().'/invitations',[
+            'email'=>$InvitedUser->email
+        ])->assertRedirect($project->path());
+        $this->assertCount(2,$project->activity);
+        $this->assertEquals('user_created',$project->activity->last()->description);
+
+    }
     
                 
 }

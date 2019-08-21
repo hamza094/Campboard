@@ -6,7 +6,7 @@ use Illuminate\Notifications\Notifiable;
 use Illuminate\Database\Eloquent\Model;
 use App\Notifications\UserInvitation;
 use App\Notifications\TaskAdded;
-
+use App\Activity;
 class Project extends Model
 {
     use Notifiable;
@@ -55,8 +55,18 @@ class Project extends Model
     public function invite(User $user)
     {
         $user->notify(new UserInvitation($this));
-        return $this->members()->attach($user);    
+        return $this->members()->attach($user);
         
+    }
+    
+    public function invitedUser(User $user)
+    {
+        Activity::create([
+        'user_id' => auth()->id(),
+        'description' => 'user_created',
+        'changes' =>$user->name,
+        'project_id' => $this->id    
+        ]);
     }
     
     public function members()

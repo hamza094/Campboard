@@ -14,6 +14,8 @@ use Session;
 
 
 
+
+
 class ProjectInvitationsController extends Controller
 {
     public function store(Project $project,ProjectInvitationRequest $request){
@@ -26,6 +28,8 @@ class ProjectInvitationsController extends Controller
      }
     if (! $project->members->contains($user->id)) {
         $project->invite($user);
+        
+         $project->invitedUser($user);        
          return redirect($project->path())->with('flash','User Invited Successfully');   
             
     }
