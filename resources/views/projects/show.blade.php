@@ -24,6 +24,7 @@
      <div class="task">
     <p class="user-project_content">Tasks</p>
     @foreach($project->tasks as $task)
+    <task inline-template :task="{{$task}}" v-cloak>
      <div class="task-card">
        <form action="{{$task->path()}}" method="POST" class="was-validated">
         @method('PATCH')
@@ -33,7 +34,13 @@
         <input type="checkbox" name="completed" class="task-card_checkbox" onChange="this.form.submit()" {{ $task->completed ? 'checked' : '' }}>
            </div>
          </form>
-    </div>
+         <div>
+           @if(auth()->user()->is($project->owner))
+    <button class="btn btn-link btn-lg" @click="destroy"><i class="far fa-trash-alt"></i></button>
+    @endif
+</div>  
+</div>
+         </task>
 @endforeach
     
     <div class="task-card">

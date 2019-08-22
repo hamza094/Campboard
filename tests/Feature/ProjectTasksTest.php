@@ -77,7 +77,7 @@ class ProjectTasksTest extends TestCase
         $this->signIn();
         $project=create('App\Project',['user_id'=>auth()->id()]);
         $task=$project->addTask('test task');
-        $this->delete($task->path());
+        $this->delete("/tasks/{$task->id}");
         $this->assertDatabaseMissing('tasks',['id'=>$task->id]);
     }
     

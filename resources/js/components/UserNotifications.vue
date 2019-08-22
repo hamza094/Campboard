@@ -2,7 +2,9 @@
    <div>
         <li class="dropdown mt-3 mr-4">
             <a href="#"  data-toggle="dropdown">
-               <span><i class="fas fa-bullhorn"></i></span>
+               <span v-if="!notifications.length"><i class="fas fa-bullhorn"></i></span>
+               <span v-if="notifications.length"><i class="fas fa-bullhorn icon-color"></i></span>
+
             </a>
             <ul class="dropdown-menu notifications">
                 <li v-for="notification in notifications" :key="notification.id" v-if="notifications.length">

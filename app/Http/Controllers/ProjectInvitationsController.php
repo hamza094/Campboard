@@ -29,7 +29,7 @@ class ProjectInvitationsController extends Controller
     if (! $project->members->contains($user->id)) {
         $project->invite($user);
         
-         $project->invitedUser($user);        
+         $project->invitedUserActivity($user);        
          return redirect($project->path())->with('flash','User Invited Successfully');   
             
     }

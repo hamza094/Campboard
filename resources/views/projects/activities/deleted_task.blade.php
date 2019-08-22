@@ -1,1 +1,1 @@
-<i class="fas fa-leaf icon-color-danger"></i> {{$activity->user->name}} deleted "{{$activity->subject->body}}"
+one task deleted

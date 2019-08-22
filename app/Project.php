@@ -59,7 +59,7 @@ class Project extends Model
         
     }
     
-    public function invitedUser(User $user)
+    public function invitedUserActivity(User $user)
     {
         Activity::create([
         'user_id' => auth()->id(),

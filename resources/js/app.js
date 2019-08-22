@@ -31,6 +31,8 @@ Vue.component('dropdown', require('./components/Dropdown.vue').default);
 Vue.component('flash-message', require('./components/FlashMessage.vue').default);
 Vue.component('user-notifications', require('./components/UserNotifications.vue').default);
 Vue.component('user-search', require('./components/UserSearch.vue').default);
+Vue.component('task', require('./components/Task.vue').default);
+
 /**
  * Next, we will create a fresh Vue application instance and attach it to
  * the page. Then, you may begin adding components to this application

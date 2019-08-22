@@ -29,7 +29,7 @@ Route::resource('projects','ProjectsController');
     
 Route::post('/projects/{project}/tasks', 'ProjectTasksController@store')->name('task.create');  
 Route::patch('/projects/{project}/tasks/{task}', 'ProjectTasksController@update')->name('task.update'); 
-Route::delete('/projects/{project}/tasks/{task}', 'ProjectTasksController@delete')->name('task.delete');     
+Route::delete('tasks/{task}', 'ProjectTasksController@delete')->name('task.delete');     
     
 Route::post('/projects/{project}/invitations','ProjectInvitationsController@store');
 Route::get('{user}/notifications', 'UserNotificationsController@index');    

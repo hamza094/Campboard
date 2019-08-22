@@ -39,9 +39,14 @@ class ProjectTasksController extends Controller
         return redirect($project->path())->with('flash','Task Updated Successfully');
     }
     
-    public function delete(Project $project,Task $task)
+    public function delete(Task $task)
     {
         $task->delete();
+        $task->activity()->delete();
+        
+        if(request()->expectsJson()){
+            return response(['status'=>'Reply deleted']);
+        }
     }
     
 }

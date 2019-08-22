@@ -20,7 +20,7 @@ class Task extends Model
      * 
      * @var array
      */
-    protected static $recordableEvents = ['created', 'deleted'];
+    protected static $recordableEvents = ['created','deleted'];
     
     public function project(){
         return $this->belongsTo(Project::class);
